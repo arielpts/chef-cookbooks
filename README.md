@@ -67,7 +67,7 @@ This recipe creates a custom .htaccess in the directory of your choice and sets
 environment variables using the apache setEnv directive. A default .htaccess file is
 provided with this recipe, but a custom .htaccess file can be used. 
 The recipe can create a unique .htaccess file for each application in the stack. 
-Two configuration values are required to make this recipe work: ```htaccess_template``` for example htaccess.rb, 
+Two configuration values are required to make this recipe work: ```htaccess_template``` for example htaccess.erb, 
 and ```path_to_vars``` This is the path where the htaccess file will be created. 
 The evironment variables can be set in the custom Chef JSON like this:
 
@@ -76,7 +76,7 @@ The evironment variables can be set in the custom Chef JSON like this:
     "custom_env": {
         "staging_site": {
             "environment": "staging",
-            "htaccess_template": "htaccess.rb",
+            "htaccess_template": "htaccess.erb",
             "path_to_vars": "web",
             "env_vars" : [ 
                 "CACHE_TIME 3600", 
@@ -86,7 +86,7 @@ The evironment variables can be set in the custom Chef JSON like this:
         },
         "production_site": {
             "environment": "production",
-            "htaccess_template": "advanced_htaccess.rb",
+            "htaccess_template": "advanced_htaccess.erb",
             "path_to_vars": "public",
             "env_vars" : [ 
                 "CACHE_TIME 1234", 
@@ -161,7 +161,7 @@ The evironment variables can be set in the custom Chef JSON like this:
             ] 
         },
         "production_site": {
-            "htaccess_template": "advanced_htaccess.rb",
+            "htaccess_template": "advanced_htaccess.erb",
             "path_to_vars": "src/acme/application/config/production",
             "env_vars" : [ 
                 "CACHE_TIME=1234", 
